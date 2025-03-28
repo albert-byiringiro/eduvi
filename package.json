@@ -1,12 +1,16 @@
 {
   "name": "eduvi",
   "private": true,
-  "workspaces": ["apps/*"],
-  "scripts": {
-    "dev": "turbo dev",
-    "start": "turbo start"
-  },
+  "workspaces": [
+    "apps/*"
+  ],
+"scripts": {
+  "dev": "turbo dev",
+  "build": "turbo build",
+  "lint": "turbo lint"
+},
+  "packageManager": "npm@11.2.0",
   "devDependencies": {
-    "turbo": "latest"
+    "turbo": "^2.4.4"
   }
 }
