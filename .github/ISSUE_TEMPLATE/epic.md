@@ -1,6 +1,6 @@
 ---
 name: Epic
-about: Track complex features with multiple sub-tasks
+about: Track complex features spanning multiple issues
 title: "[EPIC][MODULE] Feature Name"
 labels: epic
 assignees: ''
@@ -8,17 +8,23 @@ assignees: ''
 ---
 
 ### 🎯 Overall Goal  
-[Brief description of end goal]
+[Brief description of end-to-end functionality]
 
-### ✅ Final Deliverables  
+### ✅ Key Deliverables  
 - [ ] Deliverable 1  
 - [ ] Deliverable 2  
 
 ### 🔗 Child Issues  
-<!-- Auto-update as you create issues -->
-- [ ] #000 - Subtask 1  
-- [ ] #000 - Subtask 2  
+<!-- Update as subtasks are created -->
+- [ ] #00 - Subtask 1  
+- [ ] #00 - Subtask 2  
 
 ### 🌐 Documentation Links  
-- [Figma Design]()  
-- [API Spec]()  
+- [Figma Designs]()  
+- [API Contracts]()  
+- [User Flow]()  
+
+### ⚙️ Technical Requirements  
+- [ ] Backend changes needed  
+- [ ] Frontend components  
+- [ ] Database migrations  
