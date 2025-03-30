@@ -1,14 +1,13 @@
 ---
 name: Technical Task
-about: Track implementation details for epic components
+about: Track implementation details for feature components
 title: "[TASK][MODULE] Brief description"
 labels: technical
 assignees: ''
 
 ---
 
-### 🧩 Parent Epic  
-#00 
+### 🧩 Parent Epic: #00 
 
 ### ⚙️ Implementation Plan  
 1. [Step 1]  
