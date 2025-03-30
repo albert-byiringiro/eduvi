@@ -1,24 +1,35 @@
 ---
 name: Feature Request
-about: Suggest new functionality
+about: Suggest functionality tied to an epic
 title: "[FEATURE][MODULE] Brief description"
 labels: feature
 assignees: ''
 
 ---
 
-### 🚀 User Story  
-"As a [user type], I want [goal] so that [benefit]."  
+### 🚀 User Story Format  
+"As a [user persona], I want [goal] so that [reason]."
 
-### 💡 Solution Ideas  
-- Option 1: [Description]  
-- Option 2: [Alternative]  
+### 🗺️ Parent Epic  
+<!-- Link to parent epic if applicable -->
+Related to: #00 
 
-### 🔗 Related Components  
-- Frontend: `src/components/...`  
-- Backend: `api/routes/...`  
+### 🎨 UI Requirements  
+- [ ] Desktop layout  
+- [ ] Mobile responsive  
+- [ ] Accessibility checks  
+
+### 🔧 Technical Spec  
+**Frontend**:  
+- Components: `src/components/...`  
+- State management: [Redux/Context]  
+
+**Backend**:  
+- Routes: `POST /api/...`  
+- Services: `src/services/...`  
 
 ### 📊 Priority  
-- [ ] High (Blocks core functionality)  
-- [ ] Medium (Important enhancement)  
-- [ ] Low (Nice-to-have)  
+- [ ] P0-Critical (Blocks release)  
+- [ ] P1-High (Core feature)  
+- [ ] P2-Medium (Enhancement)  
+- [ ] P3-Low (Nice-to-have)  
