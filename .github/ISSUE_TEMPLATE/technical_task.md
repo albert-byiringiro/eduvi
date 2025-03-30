@@ -1,26 +1,27 @@
 ---
 name: Technical Task
-about: Infrastructure/refactor tasks
+about: Track implementation details for epic components
 title: "[TASK][MODULE] Brief description"
-labels: chore, refactor
+labels: technical
 assignees: ''
 
 ---
 
-### 🛠️ Technical Objective  
-[What needs to change technically]
+### 🧩 Parent Epic  
+#00 
 
-### 📦 Affected Areas  
-- Files:  
-  - `path/to/file.js`  
-- Services:  
-  - AWS S3 Bucket  
-  - PostgreSQL DB  
+### ⚙️ Implementation Plan  
+1. [Step 1]  
+2. [Step 2]  
 
-### 🧪 Validation Method  
-- [ ] Unit tests  
-- [ ] Manual testing  
-- [ ] Performance metrics  
+### 📦 Dependencies  
+- Requires: #00  
+- Blocks: #00  
 
-### ⚠️ Breaking Changes  
-[List any backward-incompatible changes]
+### 🔍 Validation Checklist  
+- [ ] Unit tests added  
+- [ ] Integration tests passing  
+- [ ] Performance benchmark  
+
+### ⚠️ Risk Analysis  
+[Potential breaking changes or migration needs]  
