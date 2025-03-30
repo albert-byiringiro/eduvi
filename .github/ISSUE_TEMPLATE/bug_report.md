@@ -1,30 +1,15 @@
 ---
 name: Bug Report
-about: Report unexpected behavior
+about: Report issues in epic features
 title: "[BUG][MODULE] Brief description"
 labels: bug
 assignees: ''
 
 ---
 
-### 🐞 Unexpected Behavior  
-[What happens vs what should happen]
+### 🐞 Affected Epic  
+#00 
 
-### 🔍 Reproduction Steps  
-1. Go to...
-2. Click on...
-3. See error...
-
-### 📸 Evidence  
-| Screenshot | Console Logs |  
-|------------|--------------|  
-| ![image]() | `Error: ...` |  
-
-### 🌍 Environment  
-- Device: [e.g. iPhone 12]  
-- OS: [e.g. iOS 16.5]  
-- Browser: [e.g. Safari]  
-- Version: [e.g. v1.2.3]  
-
-### ✅ Expected Fix  
-[Optional: Suggested solution]
+### 🔄 Reproduction Path  
+```bash
+curl -X POST https://api.eduvi.com/v1/... # Example API call
