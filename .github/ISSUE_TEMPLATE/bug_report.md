@@ -1,26 +1,30 @@
+---
 name: Bug Report
 about: Report unexpected behavior
-title: "[BUG] "
+title: "[BUG][MODULE] Brief description"
 labels: bug
+assignees: ''
 
-# **Description**
-Clear description of the bug
+---
 
-# **Steps to Reproduce**
+### 🐞 Unexpected Behavior  
+[What happens vs what should happen]
+
+### 🔍 Reproduction Steps  
 1. Go to...
 2. Click on...
-3. See error
+3. See error...
 
-# **Expected Behavior**
-What should have happened
+### 📸 Evidence  
+| Screenshot | Console Logs |  
+|------------|--------------|  
+| ![image]() | `Error: ...` |  
 
-# **Screenshots**
-If applicable
+### 🌍 Environment  
+- Device: [e.g. iPhone 12]  
+- OS: [e.g. iOS 16.5]  
+- Browser: [e.g. Safari]  
+- Version: [e.g. v1.2.3]  
 
-# **Environment**
-- Device: [e.g. MacBook Pro]
-- OS: [e.g. macOS 14]
-- Browser: [e.g. Chrome 120]
-
-# **Additional Context**
-Add any other context
+### ✅ Expected Fix  
+[Optional: Suggested solution]

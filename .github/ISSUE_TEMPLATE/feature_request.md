@@ -1,17 +1,24 @@
+---
 name: Feature Request
-about: Suggest a new feature
-title: "[FEATURE] "
+about: Suggest new functionality
+title: "[FEATURE][MODULE] Brief description"
 labels: feature
+assignees: ''
 
-# **Feature Description**
-What problem does this solve?
+---
 
-# **Acceptance Criteria**
-- [ ] Criteria 1
-- [ ] Criteria 2
+### 🚀 User Story  
+"As a [user type], I want [goal] so that [benefit]."  
 
-# **Design Links**
-[Figma/Sketch links]
+### 💡 Solution Ideas  
+- Option 1: [Description]  
+- Option 2: [Alternative]  
 
-# **Additional Context**
-Any relevant information
+### 🔗 Related Components  
+- Frontend: `src/components/...`  
+- Backend: `api/routes/...`  
+
+### 📊 Priority  
+- [ ] High (Blocks core functionality)  
+- [ ] Medium (Important enhancement)  
+- [ ] Low (Nice-to-have)  
