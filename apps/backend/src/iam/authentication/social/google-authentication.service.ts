@@ -3,6 +3,7 @@
 import {
   ConflictException,
   Injectable,
+  Logger,
   OnModuleInit,
   UnauthorizedException,
 } from '@nestjs/common';
@@ -15,6 +16,7 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class GoogleAuthenticationService implements OnModuleInit {
+  private readonly logger = new Logger(GoogleAuthenticationService.name);
   private oauthClient: OAuth2Client;
 
   constructor(
@@ -53,6 +55,11 @@ export class GoogleAuthenticationService implements OnModuleInit {
         return this.authService.generateAccessToken(newUser);
       }
     } catch (err) {
+      this.logger.error(
+        `Google authentication failed: ${err.message}`,
+        err.stack,
+      );
+
       const pgUniqueViolationErrorCode = '23505';
 
       if (err.code === pgUniqueViolationErrorCode) {
