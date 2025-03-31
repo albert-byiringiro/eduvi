@@ -12,11 +12,5 @@
   "packageManager": "npm@11.2.0",
   "devDependencies": {
     "turbo": "^2.4.4"
-  },
-  "dependencies": {
-    "@nestjs/config": "^4.0.2",
-    "@nestjs/typeorm": "^11.0.0",
-    "pg": "^8.14.1",
-    "typeorm": "^0.3.21"
   }
 }
