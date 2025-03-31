@@ -21,8 +21,11 @@ export class AuthenticationService {
   async signUp(signUpDto: SignUpDto) {
     try {
       const user = new User();
+      user.fullname = signUpDto.fullname;
       user.email = signUpDto.email;
       user.password = await this.hashingService.hash(signUpDto.password);
+
+      await this.usersRepository.save(user);
     } catch (err) {
       const pgUniqueViolationErrorCode = '23505';
 
