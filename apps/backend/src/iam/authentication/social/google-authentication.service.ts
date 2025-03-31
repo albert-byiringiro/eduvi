@@ -50,10 +50,10 @@ export class GoogleAuthenticationService implements OnModuleInit {
       const user = await this.userRepository.findOneBy({ googleId });
 
       if (user) {
-        return this.authService.generateAccessToken(user);
+        return this.authService.generateTokens(user);
       } else {
         const newUser = await this.userRepository.save({ email, googleId });
-        return this.authService.generateAccessToken(newUser);
+        return this.authService.generateTokens(newUser);
       }
     } catch (err) {
       this.logger.error(

@@ -3,6 +3,7 @@ import {
   ConflictException,
   Inject,
   Injectable,
+  Logger,
   UnauthorizedException,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -15,9 +16,12 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigType } from '@nestjs/config';
 import jwtConfig from '../config/jwt.config';
 import { PostgresErrorCode } from 'src/database/postgres-error-codes.enum';
+import { TokenPayload } from './interfaces/token-payload.interface';
 
 @Injectable()
 export class AuthenticationService {
+  private readonly logger = new Logger(AuthenticationService.name);
+
   constructor(
     @InjectRepository(User) private readonly usersRepository: Repository<User>,
     private readonly hashingService: HashingService,
@@ -35,10 +39,15 @@ export class AuthenticationService {
 
       const savedUser = await this.usersRepository.save(user);
 
-      return this.generateAccessToken(savedUser);
+      return this.generateTokens(savedUser);
     } catch (err) {
+      this.logger.error(
+        `Sign up failed for email ${signUpDto.email}`,
+        err.stack,
+      );
+
       if (err.code === PostgresErrorCode.UniqueViolation) {
-        throw new ConflictException();
+        throw new ConflictException('Email already in use');
       }
 
       throw err;
@@ -51,35 +60,39 @@ export class AuthenticationService {
     });
 
     if (!user) {
-      throw new UnauthorizedException('User does not exists');
+      throw new UnauthorizedException('Invalid credentials');
     }
 
-    const isEqual = await this.hashingService.compare(
+    if (!user.password) {
+      throw new UnauthorizedException('User registered with social login');
+    }
+
+    const isPasswordValid = await this.hashingService.compare(
       signInDto.password,
       user.password,
     );
 
-    if (!isEqual) {
-      throw new UnauthorizedException('Password does not match');
+    if (!isPasswordValid) {
+      throw new UnauthorizedException('Invalid credentials');
     }
 
-    return this.generateAccessToken(user);
+    return this.generateTokens(user);
   }
 
-  async generateAccessToken(user: User) {
-    const payload = {
+  async generateTokens(user: User) {
+    const payload: TokenPayload = {
       sub: user.id,
       email: user.email,
       name: user.fullname,
     };
 
-    return {
-      accessToken: await this.jwtService.signAsync(payload, {
-        audience: this.jwtConfiguration.audience,
-        issuer: this.jwtConfiguration.issuer,
-        secret: this.jwtConfiguration.secret,
-        expiresIn: this.jwtConfiguration.accessTokenTtl,
-      }),
-    };
+    const accessToken = await this.jwtService.signAsync(payload, {
+      audience: this.jwtConfiguration.audience,
+      issuer: this.jwtConfiguration.issuer,
+      secret: this.jwtConfiguration.secret,
+      expiresIn: this.jwtConfiguration.accessTokenTtl,
+    });
+
+    return { accessToken };
   }
 }
