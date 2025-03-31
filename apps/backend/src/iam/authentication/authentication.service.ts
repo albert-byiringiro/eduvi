@@ -67,7 +67,7 @@ export class AuthenticationService {
     return this.generateAccessToken(user);
   }
 
-  private async generateAccessToken(user: User) {
+  async generateAccessToken(user: User) {
     const payload = {
       sub: user.id,
       email: user.email,
