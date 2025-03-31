@@ -8,6 +8,7 @@ import { User } from 'src/users/entities/user.entity';
 import { JwtModule } from '@nestjs/jwt';
 import jwtConfig from './config/jwt.config';
 import { ConfigModule } from '@nestjs/config';
+import { GoogleAuthenticationService } from './authentication/social/google-authentication.service';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { ConfigModule } from '@nestjs/config';
       useClass: BcryptService,
     },
     AuthenticationService,
+    GoogleAuthenticationService,
   ],
   controllers: [AuthenticationController],
 })
