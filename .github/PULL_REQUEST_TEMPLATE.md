@@ -1,22 +1,43 @@
-### What does this PR do?
+---
+name: Eduvi PR
+about: Standard template for all pull requests
+title: "[TYPE][MODULE] Brief description"
+labels: ''
+assignees: ''
 
-- Describe what you worked on, briefly (In one sentence)
+---
 
-### Description of the PR?
+### 🔗 Connected Issues
+<!-- Replace with your issue links -->
+- Resolves #123 
+- Related to #456
 
-- Describe your work in detail to clarify the context
+### 📝 Description
+<!-- 1-2 sentences about what this does -->
 
-### Any background context you want to provide?
+### ✅ Checklist
+#### For All PRs
+- [ ] Tests passing (`npm test`)
+- [ ] Documentation updated
+- [ ] No console.log left behind
 
-- Note that you should send the request with a valid auth bearer token
-- request body
-`{ taskName: "Reading" }`
-- N/A if not available
+#### For Features
+- [ ] Feature flagged (if needed)
+- [ ] API documented in Swagger
 
-### What are the relevant Trello cards?
+#### For Database Changes
+- [ ] Migration rollback tested
+- [ ] Indexes added for new queries
 
-- Link to my implemented Trello story
+### 🧪 Testing Steps
+1. Checkout this branch
+2. Run `npm run dev`
+3. Verify:
+   - [ ] Test case 1
+   - [ ] Test case 2
 
-### How to test?
-
-- Give hints on how someone might easily test the feature
+### 📸 Screenshots/Logs
+<!-- For UI changes or error fixes -->
+| Before | After |
+|--------|-------|
+| <img width="300" src="..."> | <img width="300" src="..."> |
