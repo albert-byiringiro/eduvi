@@ -59,7 +59,9 @@ export class GoogleAuthenticationService implements OnModuleInit {
         throw new ConflictException();
       }
 
-      throw new UnauthorizedException();
+      throw new UnauthorizedException(
+        'Google authentication failed: Missing email or sub in token',
+      );
     }
   }
 }
