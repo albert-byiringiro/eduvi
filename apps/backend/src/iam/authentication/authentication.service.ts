@@ -62,22 +62,25 @@ export class AuthenticationService {
       throw new UnauthorizedException('Password does not match');
     }
 
-    const accessToken = await this.jwtService.signAsync(
-      {
-        sub: user.id,
-        email: user.email,
-        name: user.fullname,
-      },
-      {
+    const accessToken = this.generateAccessToken(user);
+
+    return accessToken;
+  }
+
+  private async generateAccessToken(user: User) {
+    const payload = {
+      sub: user.id,
+      email: user.email,
+      name: user.fullname,
+    };
+
+    return {
+      accessToken: await this.jwtService.signAsync(payload, {
         audience: this.jwtConfiguration.audience,
         issuer: this.jwtConfiguration.issuer,
         secret: this.jwtConfiguration.secret,
         expiresIn: this.jwtConfiguration.accessTokenTtl,
-      },
-    );
-
-    return {
-      accessToken,
+      }),
     };
   }
 }
