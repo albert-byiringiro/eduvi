@@ -14,6 +14,7 @@ import { SignInDto } from './dto/sign-in.dto/sign-in.dto';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigType } from '@nestjs/config';
 import jwtConfig from '../config/jwt.config';
+import { PostgresErrorCode } from 'src/database/postgres-error-codes.enum';
 
 @Injectable()
 export class AuthenticationService {
@@ -36,9 +37,7 @@ export class AuthenticationService {
 
       return this.generateAccessToken(savedUser);
     } catch (err) {
-      const pgUniqueViolationErrorCode = '23505';
-
-      if (err.code === pgUniqueViolationErrorCode) {
+      if (err.code === PostgresErrorCode.UniqueViolation) {
         throw new ConflictException();
       }
 

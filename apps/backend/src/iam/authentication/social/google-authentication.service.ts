@@ -13,6 +13,7 @@ import { AuthenticationService } from '../authentication.service';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/users/entities/user.entity';
 import { Repository } from 'typeorm';
+import { PostgresErrorCode } from 'src/database/postgres-error-codes.enum';
 
 @Injectable()
 export class GoogleAuthenticationService implements OnModuleInit {
@@ -40,7 +41,7 @@ export class GoogleAuthenticationService implements OnModuleInit {
 
       const payload = loginTicket.getPayload();
 
-      if (!payload || !payload.email || !payload.sub) {
+      if (!payload?.email || !payload?.sub) {
         throw new UnauthorizedException('Invalid Google token payload');
       }
 
@@ -60,10 +61,12 @@ export class GoogleAuthenticationService implements OnModuleInit {
         err.stack,
       );
 
-      const pgUniqueViolationErrorCode = '23505';
+      if (err.code === PostgresErrorCode.UniqueViolation) {
+        throw new ConflictException('User already exists');
+      }
 
-      if (err.code === pgUniqueViolationErrorCode) {
-        throw new ConflictException();
+      if (err instanceof UnauthorizedException) {
+        throw err;
       }
 
       throw new UnauthorizedException(
