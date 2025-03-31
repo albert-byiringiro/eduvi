@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import {
   ConflictException,
+  Inject,
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
@@ -10,12 +11,18 @@ import { Repository } from 'typeorm';
 import { HashingService } from '../hashing/hashing.service';
 import { SignUpDto } from './dto/sign-up.dto/sign-up.dto';
 import { SignInDto } from './dto/sign-in.dto/sign-in.dto';
+import { JwtService } from '@nestjs/jwt';
+import { ConfigType } from '@nestjs/config';
+import jwtConfig from '../config/jwt.config';
 
 @Injectable()
 export class AuthenticationService {
   constructor(
     @InjectRepository(User) private readonly usersRepository: Repository<User>,
     private readonly hashingService: HashingService,
+    private readonly jwtService: JwtService,
+    @Inject(jwtConfig.KEY)
+    private readonly jwtConfiguration: ConfigType<typeof jwtConfig>,
   ) {}
 
   async signUp(signUpDto: SignUpDto) {
@@ -25,7 +32,9 @@ export class AuthenticationService {
       user.email = signUpDto.email;
       user.password = await this.hashingService.hash(signUpDto.password);
 
-      await this.usersRepository.save(user);
+      const savedUser = await this.usersRepository.save(user);
+
+      return this.generateAccessToken(savedUser);
     } catch (err) {
       const pgUniqueViolationErrorCode = '23505';
 
@@ -55,7 +64,23 @@ export class AuthenticationService {
       throw new UnauthorizedException('Password does not match');
     }
 
-    // TODO: We'll fix this gap later
-    return true;
+    return this.generateAccessToken(user);
+  }
+
+  private async generateAccessToken(user: User) {
+    const payload = {
+      sub: user.id,
+      email: user.email,
+      name: user.fullname,
+    };
+
+    return {
+      accessToken: await this.jwtService.signAsync(payload, {
+        audience: this.jwtConfiguration.audience,
+        issuer: this.jwtConfiguration.issuer,
+        secret: this.jwtConfiguration.secret,
+        expiresIn: this.jwtConfiguration.accessTokenTtl,
+      }),
+    };
   }
 }
