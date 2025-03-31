@@ -56,5 +56,6 @@ export class AuthenticationService {
     }
 
     // TODO: We'll fix this gap later
+    return true;
   }
 }
