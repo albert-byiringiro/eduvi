@@ -32,7 +32,9 @@ export class AuthenticationService {
       user.email = signUpDto.email;
       user.password = await this.hashingService.hash(signUpDto.password);
 
-      await this.usersRepository.save(user);
+      const savedUser = await this.usersRepository.save(user);
+
+      return this.generateAccessToken(savedUser);
     } catch (err) {
       const pgUniqueViolationErrorCode = '23505';
 
@@ -62,9 +64,7 @@ export class AuthenticationService {
       throw new UnauthorizedException('Password does not match');
     }
 
-    const accessToken = this.generateAccessToken(user);
-
-    return accessToken;
+    return this.generateAccessToken(user);
   }
 
   private async generateAccessToken(user: User) {
