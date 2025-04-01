@@ -29,8 +29,8 @@ export default function Signup() {
               <span className="text-gray">Signup with google</span>
             </button>
 
-          <div className="">
-            <span className="">
+          <div className="text-center mb-8">
+            <span className="text-gray">
               - Or signup with your email -
             </span>
           </div>
