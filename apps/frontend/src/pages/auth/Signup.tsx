@@ -4,7 +4,7 @@ import signupIllustration from "../../assets/img/signup-illustration.svg"
 
 export default function Signup() {
   return (
-    <div className="w-full min-h-screen grid grid-cols-2 bg-primary-50">
+    <div className="w-full min-h-screen grid grid-cols-2 bg-white">
       {/* Left Panel */}
       <div className="p-12 flex flex-col justify-center">
         <div className="mb-12">
@@ -54,11 +54,11 @@ export default function Signup() {
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
                 Password
               </label>
-              <input type="password" id="password" name="password" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent" />
+              <input type="password" id="password" name="password" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="*********" />
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 mt-4">
             <input type="checkbox" id="terms" name="terms" className="w-4 h-4 text-purple-600 rounded border-gray-300 focus:ring-purple-500" />
             <label htmlFor="terms" className="text-sm text-gray">
               I agreed to the {" "}
@@ -66,11 +66,11 @@ export default function Signup() {
             </label>
           </div>
 
-          <button type="submit" className="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors">
+          <button type="submit" className="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors my-6">
             Sign Up
           </button>
 
-          <p className="text-center text-sm text-gray-600">
+          <p className="text-center text-sm text-gray">
             Already have account?{" "}
             <a href="/signin" className="text-purple-600 hover:text-purple-700">Sign in</a>
           </p>
