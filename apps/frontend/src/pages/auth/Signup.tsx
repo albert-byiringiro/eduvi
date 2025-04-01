@@ -24,7 +24,7 @@ export default function Signup() {
       <div className="p-12 flex flex-col justify-center">
         <form className="max-w-md mx-auto w-full">
           {/* Google Sign up */}
-          <button className="w-full flex items-center gap-3 py-3 px-4 border border-gray-300 rounded-lg mb-8 hover:bg-gray-50 transition-colors" type="button">
+          <button className="w-4/5 flex items-center justify-center gap-3 py-3 px-4 border border-gray-300 rounded-lg mb-8 hover:bg-gray-50 transition-colors" type="button">
               <FaGooglePlusSquare size={32} color="#E93E30" />
               <span className="text-gray">Signup with google</span>
             </button>
