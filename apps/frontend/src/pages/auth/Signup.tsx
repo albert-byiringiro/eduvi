@@ -1,3 +1,4 @@
+import { FaGooglePlusSquare } from "react-icons/fa"
 import eduviLogo from "../../assets/img/eduvi-dummy-logo.png"
 import signupIllustration from "../../assets/img/signup-illustration.svg"
 
@@ -5,7 +6,7 @@ export default function Signup() {
   return (
     <div className="w-full min-h-screen grid grid-cols-2 bg-primary-50">
       {/* Left Panel */}
-      <div className="p-12 bg-secondary-50 flex flex-col justify-center">
+      <div className="p-12 flex flex-col justify-center">
         <div className="mb-12">
           <img src={eduviLogo} alt="Eduvi Logo" className="h-10 mb-6" />
           <h1 className="text-4xl font-bold text-primary-900 mb-4">
@@ -20,10 +21,13 @@ export default function Signup() {
       </div>
 
       {/* Right Panel - Sign Up Form */}
-      <div className="">
-        <form className="">
+      <div className="p-12 flex flex-col justify-center">
+        <form className="max-w-md mx-auto w-full">
           {/* Google Sign up */}
-          <button className="" type="button"><span>Signup with google</span></button>
+          <button className="w-full flex items-center gap-3 py-3 px-4 border border-gray-300 rounded-lg mb-8 hover:bg-gray-50 transition-colors" type="button">
+              <FaGooglePlusSquare size={32} color="#E93E30" />
+              <span className="text-gray">Signup with google</span>
+            </button>
 
           <div className="">
             <span className="">
