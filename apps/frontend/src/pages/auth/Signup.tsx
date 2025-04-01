@@ -35,46 +35,44 @@ export default function Signup() {
             </span>
           </div>
 
-          <div className="">
+          <div className="space-y-6">
             <div>
-              <label htmlFor="fullName">
+              <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
                 Full Name
               </label>
-              <input type="text" id="fullName" name="fullName" placeholder="Esther Howard" className="" />
+              <input type="text" id="fullName" name="fullName" placeholder="Esther Howard" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"  />
             </div>
 
             <div>
-              <label htmlFor="email">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                 Email
               </label>
-              <input type="email" id="email" name="email" placeholder="bill.sanders@example.com" className="" />
+              <input type="email" id="email" name="email" placeholder="bill.sanders@example.com" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent" />
             </div>
 
             <div>
-              <label htmlFor="password">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
                 Password
               </label>
-              <input type="password" id="password" name="password" className="" />
-
-              <button type="button" className=""></button>
+              <input type="password" id="password" name="password" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent" />
             </div>
           </div>
 
-          <div className="">
-            <input type="checkbox" id="terms" name="terms" className="" />
-            <label htmlFor="terms" className="">
+          <div className="flex items-center gap-2">
+            <input type="checkbox" id="terms" name="terms" className="w-4 h-4 text-purple-600 rounded border-gray-300 focus:ring-purple-500" />
+            <label htmlFor="terms" className="text-sm text-gray">
               I agreed to the {" "}
-              <a href="/terms" className="">Terms & Conditions</a>
+              <a href="/terms" className="text-primary-900 font-medium">Terms & Conditions</a>
             </label>
           </div>
 
-          <button type="submit" className="">
+          <button type="submit" className="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors">
             Sign Up
           </button>
 
-          <p className="">
+          <p className="text-center text-sm text-gray-600">
             Already have account?{" "}
-            <a href="/signin" className="">Sign in</a>
+            <a href="/signin" className="text-purple-600 hover:text-purple-700">Sign in</a>
           </p>
         </form>
       </div>
