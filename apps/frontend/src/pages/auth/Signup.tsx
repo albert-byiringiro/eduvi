@@ -1,41 +1,78 @@
+import eduviLogo from "../../assets/img/eduvi-dummy-logo.png"
+import signupIllustration from "../../assets/img/signup-illustration.svg"
+
 export default function Signup() {
   return (
-    <div className="w-full">
+    <div className="">
+      {/* Left Panel */}
       <div className="">
-        <div className="logo">
-          <img src="#" alt="eduvi logo" />
-          <h1 className="">Welcome to Eduvi Online Learning Platform</h1>
+        <div className="">
+          <img src={eduviLogo} alt="Eduvi Logo" className="" />
+          <h1 className="">
+            Welcome to <br />
+            Eduvi Online <br />
+            Learning Platform
+          </h1>
         </div>
         <div className="">
-          <img src="#" alt="svg viewer" className="" />
-          <div className="">...</div>
+          <img src={signupIllustration} alt="" className="" />
         </div>
       </div>
-      <div className="sign-up-panel">
-        <div className="">
-          <button className="">Signup with Google</button>
-        </div>
-        <div className="">
-          <h2 className=""> - Or signup with your email - </h2>
+
+      {/* Right Panel - Sign Up Form */}
+      <div className="">
+        <form className="">
+          {/* Google Sign up */}
+          <button className="" type="button"><span>Signup with google</span></button>
+
           <div className="">
-            <label htmlFor="fullName" className="">
-              Full Name
-              <input type="text" id="fullName" />
-            </label>
-            <label htmlFor="email" className="">
-              Email
-              <input type="email" id="email" />
-            </label>
-            <label htmlFor="password" className="">
-              Email
-              <input type="password" id="password" />
-            </label>
-            <label htmlFor="terms">
-              I agree to the <span>Terms and Conditions</span>
-              <input type="checkbox" name="terms" id="terms" />
+            <span className="">
+              - Or signup with your email -
+            </span>
+          </div>
+
+          <div className="">
+            <div>
+              <label htmlFor="fullName">
+                Full Name
+              </label>
+              <input type="text" id="fullName" name="fullName" placeholder="Esther Howard" className="" />
+            </div>
+
+            <div>
+              <label htmlFor="email">
+                Email
+              </label>
+              <input type="email" id="email" name="email" placeholder="bill.sanders@example.com" className="" />
+            </div>
+
+            <div>
+              <label htmlFor="password">
+                Password
+              </label>
+              <input type="password" id="password" name="password" className="" />
+
+              <button type="button" className=""></button>
+            </div>
+          </div>
+
+          <div className="">
+            <input type="checkbox" id="terms" name="terms" className="" />
+            <label htmlFor="terms" className="">
+              I agreed to the {" "}
+              <a href="/terms" className="">Terms & Conditions</a>
             </label>
           </div>
-        </div>
+
+          <button type="submit" className="">
+            Sign Up
+          </button>
+
+          <p className="">
+            Already have account?{" "}
+            <a href="/signin" className="">Sign in</a>
+          </p>
+        </form>
       </div>
     </div>
   )
