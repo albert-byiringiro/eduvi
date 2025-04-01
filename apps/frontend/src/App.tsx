@@ -1,3 +1,5 @@
+import Signup from "./pages/auth/Signup";
+
 function App() {
   return (
     <section className="w-full bg-white py-12">
@@ -18,7 +20,7 @@ function App() {
           </button>
         </div>
         <div className="">
-          <div className="px-4 py-4 bg-primary-400">9</div>
+          <Signup/>
         </div>
       </div>
     </section>
