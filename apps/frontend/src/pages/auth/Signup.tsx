@@ -1,6 +1,7 @@
 import { FaGooglePlusSquare } from "react-icons/fa"
 import eduviLogo from "../../assets/img/eduvi-dummy-logo.png"
 import signupIllustration from "../../assets/img/signup-illustration.svg"
+import Input from "../../components/common/Input"
 
 export default function Signup() {
   return (
@@ -40,9 +41,10 @@ export default function Signup() {
               <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
                 Full Name
               </label>
-              <input type="text" id="fullName" name="fullName" placeholder="Esther Howard" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"  />
+              <input type="text" id="fullName" name="fullName" placeholder="Esther Howard" className="w-full px-4 py-3 rounded-lg border border-gray-100 focus:ring-2 focus:ring-purple-500 focus:border-transparent"  />
             </div>
 
+            <Input label={"kings"} type={"number"} error />
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                 Email
