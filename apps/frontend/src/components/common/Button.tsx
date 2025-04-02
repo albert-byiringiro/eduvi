@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { MouseEventHandler, ReactNode } from "react"
+import { cn } from "../../lib/utils"
 
 interface ButtonProps {
     children: ReactNode
@@ -30,7 +31,7 @@ export default function Button({
 
   return (
     <button
-        className=""
+        className={cn(baseStyles, !disabled && variantStyles[variant], className)}
         disabled={disabled || loading}
         onClick={onClick}
         type={type}
