@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { MouseEventHandler, ReactNode } from 'react';
 import { cn } from '../../lib/utils';
 
