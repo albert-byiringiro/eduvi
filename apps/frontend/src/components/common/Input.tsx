@@ -43,13 +43,13 @@ export default function Input({
           onChange={onChange}
           disabled={disabled}
           className={clsx(
-            'w-full rounded-lg border border-gray-100 px-4 py-2.5 text-gray-700 placeholder:text-[#667085] focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500',
+            'w-full rounded-lg border border-gray-100 px-4 py-2.5 text-gray-700 placeholder:text-[#667085] focus:border-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-200',
             { 'pl-10': icon, 'ring-2 ring-red-200': error },
           )}
           {...props}
         />
       </div>
-      {error && <p className="ml-3 mt-1 text-sm text-red-600">{error}</p>}
+      {error && <p className="mt-1 ml-3 text-sm text-red-600">{error}</p>}
     </div>
   );
 }
