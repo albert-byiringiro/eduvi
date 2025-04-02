@@ -25,9 +25,9 @@ export default function Button({
     'h-9 rounded-lg py-2.5 px-4 font-medium transition duration-300 ease-in-out inline-flex items-center justify-center gap-2 disabled:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed disabled:border-gray-300';
 
   const variantStyles: Record<string, string> = {
-    primary: 'bg-primary text-white hover:bg-primary-100 border border-transparent',
-    secondary: 'bg-secondary text-white hover:bg-secondary-50 border border-transparent',
-    outline: 'bg-transparent text-gray border border-[#D8E0F0] hover:bg-[#D8E0F0]',
+    primary: 'bg-primary text-white hover:bg-primary-hover border border-transparent',
+    secondary: 'bg-secondary text-white hover:bg-secondary-hover border border-transparent',
+    outline: 'bg-transparent text-gray border border-accent-100 hover:bg-accent-100',
   };
 
   return (
