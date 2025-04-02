@@ -40,7 +40,7 @@ export default function Input({
                 value={value}
                 onChange={onChange}
                 disabled={disabled}
-                className={clsx("w-full rounded-lg border border-gray-100 px-4 py-2.5 text-gray-700 placeholder:text-[#667085] focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary", {'pl-10': icon, 'ring-2 ring-red-200': error})}
+                className={clsx("w-full rounded-lg border border-gray-100 px-4 py-2.5 text-gray-700 placeholder:text-[#667085] focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500", {'pl-10': icon, 'ring-2 ring-red-200': error})}
                 {...props}
             />
         </div>
