@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { MouseEventHandler, ReactNode } from "react"
 
 interface ButtonProps {
@@ -10,8 +11,31 @@ interface ButtonProps {
     className?: string
 }
 
-export default function Button() {
+export default function Button({
+    children,
+    variant = 'primary',
+    loading = false,
+    disabled = false,
+    type = 'button',
+    onClick,
+    className
+}: ButtonProps) {
+    const baseStyles =     'h-9 rounded-lg py-2 px-4 font-medium transition duration-300 ease-in-out inline-flex items-center justify-center gap-2 disabled:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed disabled:border-gray-300'
+
+    const variantStyles: Record<string, string> = {
+        primary: 'bg-primary text-white hover:bg-primary-50 border border-transparent',
+        secondary: 'bg-secondary text-white hover:bg-secondary-50 border border-transparent',
+        outline: 'bg-transparent text-gray border border-[#D8E0F0] hover:bg-[#D8E0F0]',
+    }
+
   return (
-    <div>Button</div>
+    <button
+        className=""
+        disabled={disabled || loading}
+        onClick={onClick}
+        type={type}
+    >
+        {children}
+    </button>
   )
 }
