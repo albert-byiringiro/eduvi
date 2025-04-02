@@ -10,42 +10,24 @@ export default {
                 // Brand colors
                 primary: {
                     DEFAULT: '#9C4DF4',
-                    50: '#F8F2FF',
-                    100: '#F2E5FF',
-                    200: '#EDE9F2',
-                    300: '#E4E2F4',
-                    400: '#EFEBF5',
+                    hover: '#B583F9',
                     900: '#0A033C',
                 },
                 secondary: {
                     DEFAULT: '#FF6652',
-                    50: '#FFF4F2',
-                    100: '#FBC2AA',
-                    200: '#FF5364',
-                    300: '#E93E30',
+                    hover: '#FF8E78',
                 },
 
                 // UI colors
                 gray: {
                     DEFAULT: '#5D5A6F',
                     50: '#E5E5E5',
-                    100: '#DEDDE4',
-                    200: '#D8D8D8',
-                    300: '#F8FFFB',
-                    400: '#969696',
-                    500: '#424242',
-                    600: '#232323',
-                    700: '#1C1C1B',
-                    800: '#1A0400',
+                    100: '#D8E0F0',
                 },
 
                 // Accent/Feedback colors
-                green: {
+                accent: {
                     DEFAULT: '#00C968',
-                    50: '#E5FFF3',
-                    100: '#D9E0FC',
-                    200: '#07E5CA',
-                    300: '#00B59B',
                 },
 
                 // Base colors
