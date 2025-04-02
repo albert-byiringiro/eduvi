@@ -1,11 +1,28 @@
-import { FaGooglePlusSquare } from "react-icons/fa"
 import eduviLogo from "../../assets/img/eduvi-dummy-logo.png"
 import signupIllustration from "../../assets/img/signup-illustration.svg"
+import Input from "../../components/common/Input"
+import { ChangeEvent, FormEvent, useState } from "react"
+import { CiMail } from "react-icons/ci"
+import { AiOutlineGooglePlus, AiOutlineUser } from "react-icons/ai"
 
 export default function Signup() {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    password: ''
+  })
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value} = e.target
+
+    setFormData({...formData, [name]: value})
+  }
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
+    e.preventDefault()
+  }
   return (
     <div className="w-full min-h-screen grid grid-cols-2 bg-white">
-      {/* Left Panel */}
       <div className="p-12 flex flex-col justify-center">
         <div className="mb-12">
           <img src={eduviLogo} alt="Eduvi Logo" className="h-10 mb-6" />
@@ -20,12 +37,11 @@ export default function Signup() {
         </div>
       </div>
 
-      {/* Right Panel - Sign Up Form */}
       <div className="p-12 flex flex-col justify-center">
-        <form className="max-w-md mx-auto w-full">
-          {/* Google Sign up */}
+        <form onSubmit={handleSubmit} className="max-w-md mx-auto w-full">
+
           <button className="w-4/5 flex items-center justify-center gap-3 py-3 px-4 border border-gray-300 rounded-lg mb-8 hover:bg-gray-50 transition-colors" type="button">
-              <FaGooglePlusSquare size={32} color="#E93E30" />
+              <AiOutlineGooglePlus size={32} color="#E93E30" />
               <span className="text-gray">Signup with google</span>
             </button>
 
@@ -36,26 +52,11 @@ export default function Signup() {
           </div>
 
           <div className="space-y-6">
-            <div>
-              <label htmlFor="fullName" className="block text-sm font-medium text-gray-700 mb-2">
-                Full Name
-              </label>
-              <input type="text" id="fullName" name="fullName" placeholder="Esther Howard" className="w-full px-4 py-3 rounded-lg border border-gray-100 focus:ring-2 focus:ring-purple-500 focus:border-transparent"  />
-            </div>
+            <Input type="text" label="Full Name" value={formData.fullName} name="fullName" placeholder="Esther Howard" onChange={handleInputChange} icon={<AiOutlineUser />}/>
 
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                Email
-              </label>
-              <input type="email" id="email" name="email" placeholder="bill.sanders@example.com" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent" />
-            </div>
+            <Input type="email" label="Email" value={formData.email} name="email" placeholder="al.example@gmail.com" onChange={handleInputChange} icon={<CiMail />}/>
 
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-                Password
-              </label>
-              <input type="password" id="password" name="password" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="*********" />
-            </div>
+            <Input type="password" label="Password" value={formData.password} name="password" placeholder="**********" onChange={handleInputChange} icon={<CiMail />}/>
           </div>
 
           <div className="flex items-center gap-2 mt-4">
