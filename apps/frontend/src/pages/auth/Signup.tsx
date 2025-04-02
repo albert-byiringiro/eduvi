@@ -59,7 +59,7 @@ export default function Signup() {
           </div>
 
           <div className="flex items-center gap-2 mt-4">
-            <input type="checkbox" id="terms" name="terms" className="w-4 h-4 text-purple-600 rounded border-gray-300 focus:ring-purple-500" />
+            <input type="checkbox" id="terms" name="terms" className="w-4 h-4 text-purple-600 rounded border-gray-300 focus:ring-purple-500 fill-purple-700" />
             <label htmlFor="terms" className="text-sm text-gray">
               I agreed to the {" "}
               <a href="/terms" className="text-primary-900 font-medium">Terms & Conditions</a>
