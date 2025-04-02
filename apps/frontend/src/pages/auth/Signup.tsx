@@ -23,11 +23,11 @@ export default function Signup() {
     e.preventDefault();
   };
   return (
-    <div className="w-full min-h-screen grid grid-cols-2 bg-white">
-      <div className="p-12 flex flex-col justify-center">
+    <div className="grid w-full min-h-screen grid-cols-2 bg-white">
+      <div className="flex flex-col justify-center p-12">
         <div className="mb-12">
           <img src={eduviLogo} alt="Eduvi Logo" className="h-10 mb-6" />
-          <h1 className="text-4xl font-bold text-primary-900 mb-4">
+          <h1 className="mb-4 text-4xl font-bold text-primary-900">
             Welcome to <br />
             Eduvi Online <br />
             Learning Platform
@@ -38,17 +38,17 @@ export default function Signup() {
         </div>
       </div>
 
-      <div className="p-12 flex flex-col justify-center">
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto w-full">
+      <div className="flex flex-col justify-center p-12">
+        <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto">
           <button
-            className="w-4/5 flex items-center justify-center gap-3 py-3 px-4 border border-gray-300 rounded-lg mb-8 hover:bg-gray-50 transition-colors"
+            className="flex items-center justify-center w-4/5 gap-3 px-4 py-3 mb-8 transition-colors border border-gray-300 rounded-lg hover:bg-gray-50"
             type="button"
           >
             <AiOutlineGooglePlus size={32} color="#E93E30" />
             <span className="text-gray">Signup with google</span>
           </button>
 
-          <div className="text-center mb-8">
+          <div className="mb-8 text-center">
             <span className="text-gray">- Or signup with your email -</span>
           </div>
 
@@ -89,23 +89,23 @@ export default function Signup() {
               type="checkbox"
               id="terms"
               name="terms"
-              className="w-4 h-4 text-purple-600 rounded border-gray-300 focus:ring-purple-500 fill-purple-700"
+              className="w-4 h-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500 fill-purple-700"
             />
             <label htmlFor="terms" className="text-sm text-gray">
               I agreed to the{' '}
-              <a href="/terms" className="text-primary-900 font-medium">
+              <a href="/terms" className="font-medium text-primary-900">
                 Terms & Conditions
               </a>
             </label>
           </div>
 
-          {/* <button type="submit" className="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors my-6">
+          {/* <button type="submit" className="w-full py-3 my-6 text-white transition-colors bg-purple-600 rounded-lg hover:bg-purple-700">
             Sign Up
           </button> */}
 
           <Button className="w-full my-6">Sign up</Button>
 
-          <p className="text-center text-sm text-gray">
+          <p className="text-sm text-center text-gray">
             Already have account?{' '}
             <a href="/signin" className="text-purple-600 hover:text-purple-700">
               Sign in
