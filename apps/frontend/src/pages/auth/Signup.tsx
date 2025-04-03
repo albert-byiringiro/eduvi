@@ -9,6 +9,7 @@ import { CiMail } from 'react-icons/ci';
 import { AiOutlineGooglePlus, AiOutlineUser, AiOutlineLock } from 'react-icons/ai';
 import Button from '../../components/common/Button';
 import signupSchema, { SignupFormData } from '../../SignupSchema';
+import calculatePasswordStrength from '../../utils/calculatePasswordStrength';
 
 export default function Signup() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -29,16 +30,6 @@ export default function Signup() {
   });
 
   const watchPassword = watch('password');
-
-  const calculatePasswordStrength = (password: string) => {
-    if (!password) return 0;
-    return [
-      password.length >= 8,
-      /[A-Z]/.test(password),
-      /[0-9]/.test(password),
-      /[^A-Za-z0-9]/.test(password),
-    ].filter(Boolean).length;
-  };
 
   const passwordStrength = calculatePasswordStrength(watchPassword);
 
