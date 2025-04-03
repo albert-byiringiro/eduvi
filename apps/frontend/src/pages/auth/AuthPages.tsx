@@ -1,4 +1,4 @@
-import signupIllustration from '../../assets/img/signup-illustration.svg';
+import authIllustration from '../../assets/auth-illustration.svg';
 import Logo from '../../assets/Logo';
 
 export default function AuthPages({ children }: { children: React.ReactNode }) {
@@ -14,7 +14,7 @@ export default function AuthPages({ children }: { children: React.ReactNode }) {
           </h1>
         </div>
         <div className="flex justify-center">
-          <img src={signupIllustration} alt="Learning Illustratioyn" className="w-4/5" />
+          <img src={authIllustration} alt="Learning Illustratioyn" className="w-4/5" />
         </div>
       </div>
 
