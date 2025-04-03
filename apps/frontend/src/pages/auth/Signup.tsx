@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import eduviLogo from '../../assets/img/eduvi-dummy-logo.png';
 import signupIllustration from '../../assets/img/signup-illustration.svg';
 import Input from '../../components/common/Input';
@@ -9,28 +8,7 @@ import CustomCheckbox from '../../components/common/CustomCheckbox';
 import { CiMail } from 'react-icons/ci';
 import { AiOutlineGooglePlus, AiOutlineUser, AiOutlineLock } from 'react-icons/ai';
 import Button from '../../components/common/Button';
-
-const signupSchema = z
-  .object({
-    fullName: z.string().min(1, 'Full name is required'),
-    email: z.string().min(1, 'Email is required').email('Invalid email format'),
-    password: z
-      .string()
-      .min(8, 'Password must be at least 8 characters')
-      .regex(/[A-Z]/, 'Password must contain at least one uppercase letter')
-      .regex(/[0-9]/, 'Password must contain at least one number')
-      .regex(/[^A-Za-z0-9]/, 'Password must contain at least one special character'),
-    confirmPassword: z.string().min(1, 'Please confirm your password'),
-    terms: z.boolean().refine(val => val === true, {
-      message: 'You must agree to the Terms & Conditions',
-    }),
-  })
-  .refine(data => data.password === data.confirmPassword, {
-    message: "Passwords don't match",
-    path: ['confirmPassword'],
-  });
-
-type SignupFormData = z.infer<typeof signupSchema>;
+import signupSchema, { SignupFormData } from '../../SignupSchema';
 
 export default function Signup() {
   const [isSubmitting, setIsSubmitting] = useState(false);
