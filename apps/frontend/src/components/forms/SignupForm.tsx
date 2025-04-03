@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Button from '../common/Button';
-import { AiOutlineGooglePlus, AiOutlineLock, AiOutlineUser } from 'react-icons/ai';
+import { AiOutlineLock, AiOutlineUser } from 'react-icons/ai';
 import { Controller, useForm } from 'react-hook-form';
 import Input from '../common/Input';
 import { CiMail } from 'react-icons/ci';
@@ -8,6 +8,7 @@ import calculatePasswordStrength from '../../utils/calculatePasswordStrength';
 import signupSchema, { SignupFormData } from '../../SignupSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import CustomCheckbox from '../common/CustomCheckbox';
+import { GoogleAuthButton } from '../common/buttons/SocialAuthButton';
 
 export default function SignupForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -44,13 +45,7 @@ export default function SignupForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md mx-auto">
-      <button
-        className="flex items-center justify-center w-full gap-3 px-4 py-3 mb-6 transition-colors border border-gray-300 rounded-lg hover:bg-gray-50"
-        type="button"
-      >
-        <AiOutlineGooglePlus size={24} color="#E93E30" />
-        <span className="text-gray">Signup with Google</span>
-      </button>
+      <GoogleAuthButton action={'Signup'} />
 
       <div className="mb-6 text-center">
         <span className="text-gray">- Or signup with your email -</span>
