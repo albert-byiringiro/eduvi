@@ -22,7 +22,6 @@ export default function SignupForm() {
       fullName: '',
       email: '',
       password: '',
-      confirmPassword: '',
       terms: false,
     },
   });
@@ -140,21 +139,6 @@ export default function SignupForm() {
             </div>
           )}
         </div>
-
-        <Controller
-          name="confirmPassword"
-          control={control}
-          render={({ field }) => (
-            <Input
-              type="password"
-              label="Confirm Password"
-              placeholder="**********"
-              icon={<AiOutlineLock />}
-              error={errors.confirmPassword?.message}
-              {...field}
-            />
-          )}
-        />
       </div>
 
       <div className="mt-6">
