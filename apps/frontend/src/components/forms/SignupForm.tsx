@@ -9,6 +9,7 @@ import signupSchema, { SignupFormData } from '../../SignupSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import CustomCheckbox from '../common/CustomCheckbox';
 import { GoogleAuthButton } from '../common/buttons/SocialAuthButton';
+import { PasswordStrengthIndicator } from './PasswordStrengthIndicator';
 
 export default function SignupForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -98,40 +99,7 @@ export default function SignupForm() {
           />
 
           {watchPassword && (
-            <div className="mt-2">
-              <div className="flex items-center mb-1">
-                <div className="flex-1 h-2 mr-2 bg-gray-200 rounded">
-                  <div
-                    className={`h-2 rounded ${
-                      passwordStrength === 0
-                        ? 'w-0'
-                        : passwordStrength === 1
-                          ? 'w-1/4 bg-red-500'
-                          : passwordStrength === 2
-                            ? 'w-2/4 bg-yellow-500'
-                            : passwordStrength === 3
-                              ? 'w-3/4 bg-blue-500'
-                              : 'w-full bg-green-500'
-                    }`}
-                  />
-                </div>
-                <span className="text-xs text-gray-500">
-                  {passwordStrength === 0
-                    ? 'Very weak'
-                    : passwordStrength === 1
-                      ? 'Weak'
-                      : passwordStrength === 2
-                        ? 'Medium'
-                        : passwordStrength === 3
-                          ? 'Strong'
-                          : 'Very strong'}
-                </span>
-              </div>
-              <p className="text-xs text-gray-500">
-                Password must be at least 8 characters and include uppercase, numbers, and special
-                characters
-              </p>
-            </div>
+            <PasswordStrengthIndicator strength={passwordStrength} password={watchPassword} />
           )}
         </div>
       </div>
