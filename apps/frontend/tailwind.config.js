@@ -58,6 +58,20 @@ export default {
                 'lg': '0.75rem',
                 'xl': '1rem',
             },
+
+            animation: {
+                zoom: 'zoom 0.1s ease-in-out',
+            },
+            keyframes: {
+                zoom: {
+                    '0%': {
+                        transform: 'scale(0)'
+                    },
+                    '100%': {
+                        transform: 'scale(1)'
+                    },
+                }
+            }
         },
     },
     plugins: [],
