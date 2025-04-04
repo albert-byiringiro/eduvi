@@ -1,4 +1,3 @@
-// components/forms/PasswordStrengthIndicator.tsx
 interface PasswordStrengthIndicatorProps {
   strength: number;
   password: string;
