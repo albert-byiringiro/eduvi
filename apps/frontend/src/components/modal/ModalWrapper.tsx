@@ -1,6 +1,6 @@
 import React from 'react';
-import useClickOutside from './useClickOutside';
-import useDisableScroll from './useDisableScroll';
+import useClickOutside from '../../hooks/useClickOutside';
+import useDisableScroll from '../../hooks/useDisableScroll';
 import { IoCloseOutline } from 'react-icons/io5';
 
 type ModalWrapperProps = {
@@ -16,9 +16,12 @@ export default function ModalWrapper({ children, onClose }: ModalWrapperProps) {
     <div className="fixed inset-0 z-[9999] flex h-full w-full items-center justify-center bg-black bg-opacity-50">
       <div
         ref={modalRef}
-        className="relative animate-zoom min-h-[200px] w-[40%] max-w-md rounded-2xl bg-white p-10 shadow-lg sm:w-11/12 sm:p-8"
+        className="relative overflow-hidden bg-white shadow-lg animate-zoom rounded-2xl w-[1060px] h-[800px] mx-[190px] my-[140px] p-12"
       >
-        <button className="absolute text-gray-500 right-4 top-4 hover:text-gray-800">
+        <button
+          onClick={onClose}
+          className="absolute z-10 text-2xl text-gray-500 right-6 top-6 hover:text-gray-800"
+        >
           <IoCloseOutline />
         </button>
         {children}

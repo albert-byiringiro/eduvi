@@ -133,13 +133,13 @@ export default function SignupForm() {
         />
       </div>
 
-      <Button className="w-full my-6" type="submit" loading={isSubmitting}>
+      <Button className="w-full mt-8" type="submit" loading={isSubmitting}>
         {isSubmitting ? 'Creating Account...' : 'Create Account'}
       </Button>
 
-      <p className="text-sm text-center text-gray">
+      <p className="mt-6 text-sm text-center text-gray-500">
         Already have an account?{' '}
-        <a href="/signin" className="text-primary-900 hover:underline">
+        <a href="/signin" className="text-primary-600 hover:underline">
           Sign in
         </a>
       </p>
